@@ -3,7 +3,7 @@
 
 struct Background {
   enum Type {
-    GRASS, DIRT, WATER
+    NO_BACKGROUND, GRASS, DIRT, WATER
   };
 };
 

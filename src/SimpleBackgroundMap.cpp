@@ -1,4 +1,5 @@
 #include "SimpleBackgroundMap.h"
+#include <iostream>
 
 SimpleBackgroundMap::SimpleBackgroundMap(const unsigned int& width,
                                          const unsigned int& height,
@@ -19,13 +20,26 @@ SimpleBackgroundMap::~SimpleBackgroundMap() {
 Background::Type SimpleBackgroundMap::getType(const unsigned int& x,
                                               const unsigned int& y) const {
   unsigned int index = _coordsToIndex(x, y);
-  return _tiles[index];
+  if (_isInRange(index)) return _tiles[index];
+  return Background::NO_BACKGROUND;
 }
 
 void SimpleBackgroundMap::setType(const Background::Type& type, const unsigned int& x,
                                   const unsigned int& y) {
   unsigned int index = _coordsToIndex(x, y);
   if (_isInRange(index)) _tiles[index] = type;
+}
+
+unsigned int SimpleBackgroundMap::getWidth() const {
+  return _WIDTH;
+}
+
+unsigned int SimpleBackgroundMap::getHeight() const {
+  return _HEIGHT;
+}
+
+unsigned int SimpleBackgroundMap::getSize() const {
+  return _SIZE;
 }
 
 SimpleBackgroundMap::SBM_Iterator::SBM_Iterator(Background::Type *tiles,
@@ -50,9 +64,10 @@ BackgroundMap::Iterator *SimpleBackgroundMap::createIterator() {
 
 unsigned int SimpleBackgroundMap::_coordsToIndex(const unsigned int& x,
                                                  const unsigned int& y) const {
-  return ((y * _WIDTH) + x);
+  unsigned int ret = ((y * _WIDTH) + x);
+  return ret;
 }
 
-bool SimpleBackgroundMap::_isInRange(const unsigned int& index) {
+bool SimpleBackgroundMap::_isInRange(const unsigned int& index) const {
   return ((index >= 0) && (index < _SIZE));
 }

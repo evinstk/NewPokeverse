@@ -15,6 +15,9 @@ class BackgroundMap {
   virtual Background::Type getType(const unsigned int& x, const unsigned int& y) const = 0;
   virtual void setType(const Background::Type& type, const unsigned int& x,
                        const unsigned int& y) = 0;
+  virtual unsigned int getWidth() const = 0;
+  virtual unsigned int getHeight() const = 0;
+  virtual unsigned int getSize() const = 0;
   class Iterator {
   public:
     virtual bool hasNext() = 0;

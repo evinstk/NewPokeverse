@@ -20,6 +20,9 @@ class SimpleBackgroundMap: public BackgroundMap {
 
   Background::Type getType(const unsigned int& x, const unsigned int& y) const;
   void setType(const Background::Type& type, const unsigned int& x, const unsigned int& y);
+  unsigned int getWidth() const;
+  unsigned int getHeight() const;
+  unsigned int getSize() const;
   Iterator *createIterator();
  private:
   /* Iterator implementation made private to avoid abuse. createIterator()
@@ -40,7 +43,7 @@ class SimpleBackgroundMap: public BackgroundMap {
   const unsigned int _SIZE;
 
   unsigned int _coordsToIndex(const unsigned int& x, const unsigned int& y) const;
-  bool _isInRange(const unsigned int& index);
+  bool _isInRange(const unsigned int& index) const;
 };
 
 #endif /* SIMPLE_BACKGROUND_MAP_H */
