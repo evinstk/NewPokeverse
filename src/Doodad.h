@@ -18,6 +18,12 @@
  * their position (if there is one) or context. They only
  * know their dimensions.
  *
+ * Doodad is not responsible for adding or removing
+ * prototypes. A separate class DoodadPrototyper does this
+ * for Doodad, so that clients of Doodad may use pre-
+ * existing Doodad objects without danger. Doodad makes
+ * no calls to DoodadPrototyper.
+ *
  * For improvements, Consider offering two varieties of
  * support: fast but inflexible hard-wired approach for
  * built-in types while keeping a cache for custom
@@ -25,17 +31,11 @@
  */
 class Doodad {
  public:
+  friend class DoodadPrototyper;
   enum BuiltInType {
     NO_DOODAD, TREE, BUSH
   };
   static Doodad findAndClone(const int& type);
-  static bool addPrototype(const BuiltInType& type,
-                           const unsigned char& width,
-                           const unsigned char& height);
-  static bool addPrototype(const int& type,
-                           const unsigned char& width,
-                           const unsigned char& height);
-  static bool removePrototype(const int& type);
 
   /* Instance-specific methods */
   int getType() const;
