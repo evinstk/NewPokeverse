@@ -3,10 +3,12 @@
 std::vector<Doodad> Doodad::_prototypes;
 int Doodad::_next_slot;
 
+Doodad::Doodad(): _type(NO_DOODAD), _w(0), _h(0) {}
+
 Doodad Doodad::findAndClone(const int& type) {
   int index = _getIndex(type);
   if (index != -1) return _prototypes[index];
-  return Doodad(NO_DOODAD, 0, 0);
+  return Doodad();
 }
 
 Doodad::Doodad(const int& type, const unsigned char& width, const unsigned char& height):

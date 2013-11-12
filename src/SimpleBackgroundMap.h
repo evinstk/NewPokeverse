@@ -46,7 +46,6 @@ class SimpleBackgroundMap: public BackgroundMap {
   const unsigned int _HEIGHT;
   const unsigned int _SIZE;
 
-  unsigned int _coordsToIndex(const unsigned int& x, const unsigned int& y) const;
   bool _isInRange(const unsigned int& index) const;
   void _shrinkToFit(unsigned int& x, unsigned int& y, unsigned int& w, unsigned int& h);
 };

@@ -35,6 +35,7 @@ class Doodad {
   enum BuiltInType {
     NO_DOODAD, TREE, BUSH
   };
+  Doodad();
   static Doodad findAndClone(const int& type);
 
   /* Instance-specific methods */

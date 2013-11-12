@@ -1,5 +1,5 @@
 #include "SimpleBackgroundMap.h"
-#include <iostream>
+#include "util/CoordConverter.h"
 
 SimpleBackgroundMap::SimpleBackgroundMap(const unsigned int& width,
                                          const unsigned int& height,
@@ -19,7 +19,7 @@ SimpleBackgroundMap::~SimpleBackgroundMap() {
 
 Background::Type SimpleBackgroundMap::getType(const unsigned int& x,
                                               const unsigned int& y) const {
-  unsigned int index = _coordsToIndex(x, y);
+  unsigned int index = CoordConverter::coordsToIndex(x, y, _WIDTH);
   if (_isInRange(index)) return _tiles[index];
   return Background::NO_BACKGROUND;
 }
@@ -62,7 +62,7 @@ bool SimpleBackgroundMap::SBM_Iterator::hasNext() {
 }
 
 Background::Type *SimpleBackgroundMap::SBM_Iterator::next() {
-  unsigned int index = _map->_coordsToIndex(_index_x, _index_y);
+  unsigned int index = CoordConverter::coordsToIndex(_index_x, _index_y, _map->_WIDTH);
   Background::Type *ret = &_map->_tiles[index];
   if (_index_x == (_x + _w - 1)) {
     _index_x = _x;
@@ -88,12 +88,6 @@ BackgroundMap::Iterator *SimpleBackgroundMap::createIterator(const unsigned int&
   unsigned int mx = x, my = y, mw = w, mh = h;
   _shrinkToFit(mx, my, mw, mh);
   return new SBM_Iterator(this, mx, my, mw, mh);
-}
-
-unsigned int SimpleBackgroundMap::_coordsToIndex(const unsigned int& x,
-                                                 const unsigned int& y) const {
-  unsigned int ret = ((y * _WIDTH) + x);
-  return ret;
 }
 
 bool SimpleBackgroundMap::_isInRange(const unsigned int& index) const {
