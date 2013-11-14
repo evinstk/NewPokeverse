@@ -16,7 +16,7 @@ bool SimpleDoodadMap::setDoodad(const int& type,
                                 const unsigned int& y) {
   Doodad d = Doodad::findAndClone(type);
   unsigned int index = CoordConverter::coordsToIndex(x, y, _background_map->getWidth());
-  if (d.getType() != Doodad::NO_DOODAD) {
+  if ((d.getType() != Doodad::NO_DOODAD) && (index < _background_map->getSize())) {
     _doodads[index] = d;
     return true;
   }
