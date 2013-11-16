@@ -5,7 +5,8 @@
  * Class: Movable1D
  * ================
  * Contains state information on direction in
- * a 1-D context. Knows nothing of the context
+ * a 1-D context. Knowss nothing of the context
+ * Contains state information on direction in
  * like position and depends on nothing. States
  * are like velocity. Use this in composition
  * to encapsulate directed movement information.
