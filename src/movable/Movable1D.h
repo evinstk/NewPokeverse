@@ -2,10 +2,10 @@
 #define MOVABLE_H
 
 /**
- * Class: Movable
- * ==============
+ * Class: Movable1D
+ * ================
  * Contains state information on direction in
- * a 2-D context. Knows nothing of the context
+ * a 1-D context. Knows nothing of the context
  * like position and depends on nothing. States
  * are like velocity. Use this in composition
  * to encapsulate directed movement information.
