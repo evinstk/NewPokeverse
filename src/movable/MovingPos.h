@@ -1,18 +1,18 @@
-#ifndef MOVING_RIGHT_H
-#define MOVING_RIGHT_H
+#ifndef MOVING_POS_H
+#define MOVING_POS_H
 
-#include "Movable.h"
+#include "Movable1D.h"
 
-class MovingRight: public Movable::MoveState {
+class MovingPos: public Movable1D::MoveState {
  public:
-  MovingRight(Movable *movable);
+  MovingPos(Movable1D *movable);
   virtual Type getType() const;
   virtual void posPress();
   virtual void negPress();
   virtual void posRelease();
   virtual void negRelease();
  private:
-  Movable *_movable;
+  Movable1D *_movable;
 };
 
 #endif /* MOVING_RIGHT_H */
