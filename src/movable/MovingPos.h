@@ -6,7 +6,7 @@
 class MovingPos: public Movable1D::MoveState {
  public:
   MovingPos(Movable1D *movable);
-  virtual Type getType() const;
+  virtual char getDirection() const;
   virtual void posPress();
   virtual void negPress();
   virtual void posRelease();

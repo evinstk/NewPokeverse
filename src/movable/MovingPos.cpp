@@ -2,8 +2,8 @@
 
 MovingPos::MovingPos(Movable1D *movable): _movable(movable) {}
 
-Movable1D::MoveState::Type MovingPos::getType() const {
-  return MoveState::POSITIVE;
+char MovingPos::getDirection() const {
+  return 1;
 }
 
 void MovingPos::posPress() {}

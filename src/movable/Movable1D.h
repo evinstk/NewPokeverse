@@ -1,26 +1,11 @@
 #ifndef MOVABLE_H
 #define MOVABLE_H
 
-/**
- * Class: Movable1D
- * ================
- * Contains state information on direction in
- * a 1-D context. Knows nothing of the context
- * Contains state information on direction in
- * like position and depends on nothing. States
- * are like velocity. Use this in composition
- * to encapsulate directed movement information.
- */
-class Movable1D {
+class Movable1D: public IMovable1D {
  public:
   class MoveState {
    public:
-    enum Type {
-      NEGATIVE = -1,
-      STATIONARY = 0,
-      POSITIVE = 1
-    };
-    virtual Type getType() const = 0;
+    virtual char getDirection() const = 0;
     virtual void posPress() = 0;
     virtual void negPress() = 0;
     virtual void posRelease() = 0;
@@ -35,7 +20,7 @@ class Movable1D {
   MoveState *getMovingNeg() const;
 
   void setState(MoveState *move_state);
-  MoveState::Type getStateType() const;
+  char getDirection() const;
   void posPress();
   void negPress();
   void posRelease();

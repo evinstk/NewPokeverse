@@ -2,8 +2,8 @@
 
 MovingNeg::MovingNeg(Movable1D *movable): _movable(movable) {}
 
-Movable1D::MoveState::Type MovingNeg::getType() const {
-  return MoveState::NEGATIVE;
+char MovingNeg::getDirection() const {
+  return -1;
 }
 
 void MovingNeg::posPress() {

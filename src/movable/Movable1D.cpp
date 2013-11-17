@@ -33,8 +33,8 @@ void Movable1D::setState(Movable1D::MoveState *move_state) {
   _state = move_state;
 }
 
-Movable1D::MoveState::Type Movable1D::getStateType() const {
-  return _state->getType();
+char Movable1D::getDirection() const {
+  return _state->getDirection();
 }
 
 void Movable1D::posPress() {

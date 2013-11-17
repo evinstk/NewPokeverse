@@ -2,8 +2,8 @@
 
 Stationary::Stationary(Movable1D *movable): _movable(movable) {}
 
-Movable1D::MoveState::Type Stationary::getType() const {
-  return STATIONARY;
+char Stationary::getDirection() const {
+  return 0;
 }
 
 void Stationary::posPress() {

@@ -6,7 +6,7 @@
 class MovingNeg: public Movable1D::MoveState {
  public:
   MovingNeg(Movable1D *movable);
-  virtual Type getType() const;
+  virtual char getDirection() const;
   virtual void posPress();
   virtual void negPress();
   virtual void posRelease();
