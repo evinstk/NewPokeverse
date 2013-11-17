@@ -37,18 +37,10 @@ char Movable1D::getDirection() const {
   return _state->getDirection();
 }
 
-void Movable1D::posPress() {
-  _state->posPress();
+void Movable1D::posBump() {
+  _state->posBump();
 }
 
-void Movable1D::negPress() {
-  _state->negPress();
-}
-
-void Movable1D::posRelease() {
-  _state->posRelease();
-}
-
-void Movable1D::negRelease() {
-  _state->negRelease();
+void Movable1D::negBump() {
+  _state->negBump();
 }

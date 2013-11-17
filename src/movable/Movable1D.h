@@ -1,15 +1,13 @@
 #ifndef MOVABLE_H
 #define MOVABLE_H
 
-class Movable1D: public IMovable1D {
+class Movable1D {
  public:
   class MoveState {
    public:
     virtual char getDirection() const = 0;
-    virtual void posPress() = 0;
-    virtual void negPress() = 0;
-    virtual void posRelease() = 0;
-    virtual void negRelease() = 0;
+    virtual void posBump() = 0;
+    virtual void negBump() = 0;
   };
 
   Movable1D();
@@ -21,10 +19,8 @@ class Movable1D: public IMovable1D {
 
   void setState(MoveState *move_state);
   char getDirection() const;
-  void posPress();
-  void negPress();
-  void posRelease();
-  void negRelease();
+  void posBump();
+  void negBump();
  private:
   MoveState *_stationary;
   MoveState *_moving_neg;

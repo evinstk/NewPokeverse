@@ -6,18 +6,10 @@ char Stationary::getDirection() const {
   return 0;
 }
 
-void Stationary::posPress() {
+void Stationary::posBump() {
   _movable->setState(_movable->getMovingPos());
 }
 
-void Stationary::negPress() {
+void Stationary::negBump() {
   _movable->setState(_movable->getMovingNeg());
-}
-
-void Stationary::posRelease() {
-  _movable->setState(_movable->getMovingNeg());
-}
-
-void Stationary::negRelease() {
-  _movable->setState(_movable->getMovingPos());
 }
