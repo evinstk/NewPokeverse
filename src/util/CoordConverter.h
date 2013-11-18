@@ -12,7 +12,7 @@
 class CoordConverter {
  public:
   struct Point { unsigned int x; unsigned int y; };
-  static unsigned int coordsToIndex(const unsigned int& x, const unsigned int& y,
+  static unsigned long coordsToIndex(const unsigned int& x, const unsigned int& y,
 				    const unsigned int& width);
   static Point indexToCoords(const unsigned int& index, const unsigned int& width);
 };

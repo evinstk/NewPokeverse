@@ -1,9 +1,9 @@
 #include "CoordConverter.h"
 
-unsigned int CoordConverter::coordsToIndex(const unsigned int& x,
+unsigned long CoordConverter::coordsToIndex(const unsigned int& x,
                                            const unsigned int& y,
 					   const unsigned int& width) {
-  unsigned int ret = ((y * width) + x);
+  unsigned long ret = ((y * width) + x);
   return ret;
 }
 
